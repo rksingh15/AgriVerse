@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".MainActivityWeather">
+
+    <!-- Header Section -->
+    <View
+        android:id="@+id/headerBackground"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="#2E7D32"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tvAppTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:text="AgriVerse"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAppSlogan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="Smart Farming for Better Future"
+        android:textColor="#E8F5E9"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvAppTitle"/>
+
+    <ImageView
+        android:id="@+id/profileImage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/profile_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!-- Main Content ScrollView -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:clipToPadding="false"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintTop_toBottomOf="@id/tvAppSlogan"
+        android:layout_marginTop="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Section Header: Quick Actions -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Quick Actions"
+                android:textColor="#1B5E20"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="8dp"/>
+
+            <!-- Plant Diagnose Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardDiagnose"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:stateListAnimator="@animator/card_elevation">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/badge1"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/leaf"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/icon1"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_centerInParent="@id/badge1"
+                        android:src="@drawable/camera"
+                        />
+
+                    <TextView
+                        android:id="@+id/title1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/badge1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="16dp"
+                        android:text="Plant Diagnose"
+                        android:textColor="#1B5E20"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title1"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Take a photo to detect diseases and get instant remedies."
+                        android:textColor="#757575"
+                        android:textSize="15sp"
+                        android:lineSpacingExtra="4dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"/>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Weather Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weatherCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:stateListAnimator="@animator/card_elevation">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/badge2"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/we"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/icon2"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_centerInParent="@id/badge2"
+                        android:src="@drawable/cloudy"
+                        />
+
+                    <TextView
+                        android:id="@+id/title2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/badge2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="16dp"
+                        android:text="Weather Update"
+                        android:textColor="#0D47A1"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <TextView
+                        android:id="@+id/tvWeatherResult"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title2"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Check forecast, humidity, and rain predictions for your area."
+                        android:textColor="#757575"
+                        android:textSize="15sp"
+                        android:lineSpacingExtra="4dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"/>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Section Header: Learning -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Learning Resources"
+                android:textColor="#1B5E20"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingTop="8dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="8dp"
+                android:layout_marginTop="8dp"/>
+
+            <!-- Horizontal Layout for Farmer & Student Cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="20dp">
+
+                <!-- Farmer Learning Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardFarmer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    android:stateListAnimator="@animator/card_elevation">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:id="@+id/badge4"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/field"
+                            android:scaleType="centerInside"/>
+
+                        <ImageView
+                            android:id="@+id/icon4"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_centerInParent="@id/badge4"
+                            android:src="@drawable/farmer"
+                            />
+
+                        <TextView
+                            android:id="@+id/title3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/badge4"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="12dp"
+                            android:text="Farmer"
+                            android:textColor="#E65100"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/title3"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="AI-based crop"
+                            android:textColor="#757575"
+                            android:textSize="14sp"
+                            android:maxLines="2"/>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+
+                <!-- Student Learning Card -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardStudent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    app:cardCornerRadius="20dp"
+                    app:cardElevation="6dp"
+                    app:cardBackgroundColor="#FFFFFF"
+                    android:stateListAnimator="@animator/card_elevation"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="20dp">
+
+                        <ImageView
+                            android:id="@+id/badge6"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:layout_centerHorizontal="true"
+                            android:src="@drawable/studentimg"
+                            android:scaleType="centerInside"/>
+
+                        <ImageView
+                            android:id="@+id/icon6"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_centerInParent="@id/badge6"
+                            android:src="@drawable/students"
+                            />
+
+                        <TextView
+                            android:id="@+id/title4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/badge6"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="12dp"
+                            android:text="Student"
+                            android:textColor="#283593"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/title4"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="Latest trends"
+                            android:textColor="#757575"
+                            android:textSize="14sp"
+                            android:maxLines="2"/>
+
+                    </RelativeLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <!-- Market Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardMarket"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="32dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="6dp"
+                app:cardBackgroundColor="#FFFFFF"
+                android:stateListAnimator="@animator/card_elevation">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="24dp">
+
+                    <ImageView
+                        android:id="@+id/badge5"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/stock"
+                        android:scaleType="centerInside"/>
+
+                    <ImageView
+                        android:id="@+id/icon5"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_centerInParent="@id/badge5"
+                        android:src="@drawable/market"
+                        />
+
+                    <TextView
+                        android:id="@+id/title5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/badge5"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="16dp"
+                        android:text="Market / Govt Info"
+                        android:textColor="#5D4037"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/title5"
+                        android:layout_marginTop="8dp"
+                        android:gravity="center"
+                        android:text="Latest crop market prices and subsidy schemes."
+                        android:textColor="#757575"
+                        android:textSize="15sp"
+                        android:lineSpacingExtra="4dp"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"/>
+
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Bottom Navigation Bar -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:elevation="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:itemIconTint="@null"
+        app:itemTextColor="#FF2E7D32"
+        app:itemTextAppearanceActive="@style/BottomNavLabelStyle"
+        app:itemTextAppearanceInactive="@style/BottomNavLabelStyle"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"/>
+
+    <!-- Floating AI Assistant Button -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardAiAssistant"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="70dp"
+        app:cardCornerRadius="35dp"
+        app:cardElevation="12dp"
+        app:cardBackgroundColor="#2E7D32"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imgMic"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/aitechnology"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:paddingTop="4dp"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
