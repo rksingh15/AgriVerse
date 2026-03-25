@@ -22,7 +22,7 @@
         android:layout_marginStart="24dp"
         android:text="AgriVerse"
         android:textColor="#FFFFFF"
-        android:textSize="28sp"
+        android:textSize="280sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
