@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AgriVerse">
         <activity
+            android:name=".Speech.Speechlanch"
+            android:exported="false" />
+        <activity
             android:name=".LoginPart.signInPart"
             android:exported="false" />
         <activity
@@ -20,14 +23,13 @@
         <activity
             android:name=".LoginPart.SplashScreen"
             android:exported="true"
-            android:theme="@style/Theme.AgriVerse" >
+            android:theme="@style/Theme.AgriVerse">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

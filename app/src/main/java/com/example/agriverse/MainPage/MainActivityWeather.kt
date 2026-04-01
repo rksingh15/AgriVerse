@@ -1,4 +1,4 @@
-package com.example.agriverse
+package com.example.agriverse.MainPage
 
 import android.Manifest
 import android.content.Intent
@@ -19,6 +19,7 @@ import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.agriverse.Profile.ProfileActivity
+import com.example.agriverse.R
 import com.example.agriverse.ai.StudentLearningActivity
 
 import com.example.agriverse.plantdig.PlantDiagnoseActivity
@@ -32,6 +33,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 import java.util.Locale
+import kotlin.collections.get
 
 const val WEATHER_API_KEY = "Put Api"
 
